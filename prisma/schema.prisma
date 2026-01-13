@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  moduleFormat    = "cjs"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Employee {
+  id Int @default(autoincrement()) @id
+  idEmployee String
+  nom String
+  prenom String
+  dateNaissance DateTime
+  dateEmbauche DateTime 
+  nombreEnfant Int
+  sexe String
+  adresse String
+  nif String
+  telephone String
+  salaire Float
+  departementId  Int
+  departement    Departement @relation(fields: [departementId], references: [id])
+  positionId Int
+  position Position @relation(fields: [positionId], references: [id])
+  typeCongeId Int
+  typeConge TypeConge @relation(fields: [typeCongeId], references: [id])
+  etatCivilId Int
+  etatCivil EtatCivil @relation(fields: [etatCivilId], references: [id])
+  banqueId Int
+  banque Banque @relation(fields: [banqueId], references: [id])
+  numCompteBancaire String
+
+}
+
+model Departement {
+  id Int @default(autoincrement()) @id
+  name String
+  employees Employee[]
+}
+
+model Banque {
+  id Int @default(autoincrement()) @id
+  name String
+  employees Employee[]
+}
+
+model Position {
+  id Int @default(autoincrement()) @id
+  name String
+  employees Employee[]
+}
+
+model EtatCivil {
+  id Int @default(autoincrement()) @id
+  name String
+  employees Employee[]
+}
+
+model TypeConge {
+  id Int @default(autoincrement()) @id
+  name String
+  employees Employee[]
+}
+
+model User {
+  id    Int     @default(autoincrement()) @id
+  email String  @unique
+  name  String?
+  posts Post[]
+}
+
+model Post {
+  id        Int      @default(autoincrement()) @id
+  title     String
+  content   String?
+  published Boolean? @default(false)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  Int?
+}
