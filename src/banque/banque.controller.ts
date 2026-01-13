@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { BanqueService } from './banque.service';
+import * as client from 'src/generated/prisma/client';
 
 @Controller('/api/banques')
 export class BanqueController {
@@ -11,12 +12,12 @@ export class BanqueController {
     }
 
     @Get('/:id')
-    async find(@Param('id') id:number){
-        return this.banqueService.find(id)
+    async find(@Param('id') id:string){
+        return this.banqueService.find(parseInt(id))
     }
 
     @Post('')
-    async create(@Body() data:{ name: string}){
+    async create(@Body() data:client.Banque){
         return this.banqueService.create(data)
     }
 
@@ -26,7 +27,7 @@ export class BanqueController {
     }
 
     @Delete('/:id')
-    async delete(@Param('id') id:number){
-        return this.banqueService.delete(id)
+    async delete(@Param('id') id:string){
+        return this.banqueService.delete(parseInt(id))
     }
 }

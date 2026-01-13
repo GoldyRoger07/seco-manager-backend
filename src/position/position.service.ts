@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from 'src/generated/prisma/client';
+import { Position, Prisma } from 'src/generated/prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -7,8 +7,9 @@ export class PositionService {
     constructor(private prisma: PrismaService) {}
         
         
-            async create(data: Prisma.PositionCreateInput): Promise<any> {
-                return this.prisma.position.create({data})
+            async create(data1: Position): Promise<any> {
+                const {id,...data} = data1
+                return this.prisma.position.create({data:{name:data.name}})
             }
         
             async find(id: number): Promise<any> {

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from 'src/generated/prisma/client';
+import { Prisma, TypeConge } from 'src/generated/prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -7,7 +7,8 @@ export class TypeCongeService {
     constructor(private prisma: PrismaService) {}
         
         
-            async create(data: Prisma.TypeCongeCreateInput): Promise<any> {
+            async create(data1: TypeConge): Promise<any> {
+                const {id,...data} = data1
                 return this.prisma.typeConge.create({data})
             }
         

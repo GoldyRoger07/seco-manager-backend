@@ -19,7 +19,7 @@ export class DepartementService {
         }
     
         async findAll(params: { skip?: number; take?: number; cursor?: any; where?: any; orderBy?: any; }): Promise<any[]> {
-           return this.prisma.departement.findMany()
+           return this.prisma.departement.findMany({include:{employees: true}})
         }
         async update(element: any): Promise<any> {
             return this.prisma.departement.update({

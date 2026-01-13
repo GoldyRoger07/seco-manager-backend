@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from 'src/generated/prisma/client';
+import { EtatCivil, Prisma } from 'src/generated/prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -7,7 +7,8 @@ export class EtatCivilService {
     constructor(private prisma: PrismaService) {}
         
         
-            async create(data: Prisma.EtatCivilCreateInput): Promise<any> {
+            async create(data1: EtatCivil): Promise<any> {
+                const {id,...data} = data1
                 return this.prisma.etatCivil.create({data})
             }
         
@@ -18,8 +19,9 @@ export class EtatCivilService {
             }
         
             async findAll(params: { skip?: number; take?: number; cursor?: any; where?: any; orderBy?: any; }): Promise<any[]> {
-               return this.prisma.etatCivil.findMany()
+               return this.prisma.etatCivil.findMany({include: {employees:true}})
             }
+
             async update(element: any): Promise<any> {
                 return this.prisma.etatCivil.update({
                     where: {

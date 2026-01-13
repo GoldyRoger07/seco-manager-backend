@@ -11,8 +11,8 @@ export class DepartementController {
         }
     
         @Get('/:id')
-        async find(@Param('id') id:number){
-            return this.departementService.find(id)
+        async find(@Param('id') id:string){
+            return this.departementService.find(parseInt(id))
         }
     
         @Post('')
