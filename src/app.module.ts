@@ -19,15 +19,18 @@ import { BanqueController } from './banque/banque.controller';
 import { PositionController } from './position/position.controller';
 import { EtatCivilController } from './etat-civil/etat-civil.controller';
 import { TypeCongeController } from './type-conge/type-conge.controller';
+import { StatisticService } from './statistic/statistic.service';
+import { StatisticController } from './statistic/statistic.controller';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
+      rootPath: join(process.cwd(), 'client'),
+      
     })
   ],
-  controllers: [AppController, EmployeeController, DepartementController, BanqueController, PositionController, EtatCivilController, TypeCongeController],
-  providers: [AppService, PrismaService, UserService, PostService, DepartementService, BanqueService, PositionService, EtatCivilService, TypeCongeService, EmployeeService],
+  controllers: [AppController, EmployeeController, DepartementController, BanqueController, PositionController, EtatCivilController, TypeCongeController, StatisticController],
+  providers: [AppService, PrismaService, UserService, PostService, DepartementService, BanqueService, PositionService, EtatCivilService, TypeCongeService, EmployeeService, StatisticService],
 })
 export class AppModule {}

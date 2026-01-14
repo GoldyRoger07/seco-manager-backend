@@ -5,11 +5,18 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-  "main":"main.js",
+  "main": "main.js",
+  "build": {
+  "appId": "com.myapp.desktop",
+  "win": {
+    "target": "nsis",
+    "icon": "favicon.ico"
+  }
+},
   "scripts": {
-    "build": "nest build",
+    "build": "electron-builder",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "electron .",
+    "start": "electron . --trace-warnings ...",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -44,6 +51,7 @@
     "@types/node": "^22.10.7",
     "@types/supertest": "^6.0.2",
     "electron": "^39.2.7",
+    "electron-builder": "^26.4.0",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.2",
