@@ -19,7 +19,7 @@ export class TypeCongeService {
             }
         
             async findAll(params: { skip?: number; take?: number; cursor?: any; where?: any; orderBy?: any; }): Promise<any[]> {
-               return this.prisma.typeConge.findMany()
+               return this.prisma.typeConge.findMany({include:{employees: true}})
             }
             async update(element: any): Promise<any> {
                 return this.prisma.typeConge.update({
