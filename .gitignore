@@ -2,6 +2,10 @@
 /dist
 /node_modules
 /build
+<<<<<<< HEAD
+=======
+/dist-temp
+>>>>>>> d293c24cdfb65906936820ebe943ca6e69b28dc9
 /backend
 
 # Logs
