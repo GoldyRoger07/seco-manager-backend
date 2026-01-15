@@ -21,6 +21,8 @@ import { EtatCivilController } from './etat-civil/etat-civil.controller';
 import { TypeCongeController } from './type-conge/type-conge.controller';
 import { StatisticService } from './statistic/statistic.service';
 import { StatisticController } from './statistic/statistic.controller';
+import { BadgesController } from './badges/badges.controller';
+import { BadgesService } from './badges/badges.service';
 
 @Module({
   imports: [
@@ -30,7 +32,7 @@ import { StatisticController } from './statistic/statistic.controller';
       
     })
   ],
-  controllers: [AppController, EmployeeController, DepartementController, BanqueController, PositionController, EtatCivilController, TypeCongeController, StatisticController],
-  providers: [AppService, PrismaService, UserService, PostService, DepartementService, BanqueService, PositionService, EtatCivilService, TypeCongeService, EmployeeService, StatisticService],
+  controllers: [AppController, EmployeeController, DepartementController, BanqueController, PositionController, EtatCivilController, TypeCongeController, StatisticController, BadgesController],
+  providers: [AppService, PrismaService, UserService, PostService, DepartementService, BanqueService, PositionService, EtatCivilService, TypeCongeService, EmployeeService, StatisticService, BadgesService],
 })
 export class AppModule {}

@@ -7,12 +7,12 @@
   "license": "UNLICENSED",
   "main": "main.js",
   "build": {
-  "appId": "com.myapp.desktop",
-  "win": {
-    "target": "nsis",
-    "icon": "favicon.ico"
-  }
-},
+    "appId": "com.myapp.desktop",
+    "win": {
+      "target": "nsis",
+      "icon": "favicon.ico"
+    }
+  },
   "scripts": {
     "build": "electron-builder",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -36,6 +36,8 @@
     "@prisma/adapter-better-sqlite3": "^7.2.0",
     "@prisma/client": "^7.2.0",
     "@types/better-sqlite3": "^7.6.13",
+    "canvas": "^3.2.1",
+    "multer": "^2.0.2",
     "prisma": "^7.2.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
@@ -48,6 +50,7 @@
     "@nestjs/testing": "^11.0.1",
     "@types/express": "^5.0.0",
     "@types/jest": "^30.0.0",
+    "@types/multer": "^2.0.0",
     "@types/node": "^22.10.7",
     "@types/supertest": "^6.0.2",
     "electron": "^39.2.7",

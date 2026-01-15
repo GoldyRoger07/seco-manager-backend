@@ -30,6 +30,8 @@ const etat_civil_controller_1 = require("./etat-civil/etat-civil.controller");
 const type_conge_controller_1 = require("./type-conge/type-conge.controller");
 const statistic_service_1 = require("./statistic/statistic.service");
 const statistic_controller_1 = require("./statistic/statistic.controller");
+const badges_controller_1 = require("./badges/badges.controller");
+const badges_service_1 = require("./badges/badges.service");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -41,8 +43,8 @@ exports.AppModule = AppModule = __decorate([
                 rootPath: (0, path_1.join)(process.cwd(), 'client'),
             })
         ],
-        controllers: [app_controller_1.AppController, employee_controller_1.EmployeeController, departement_controller_1.DepartementController, banque_controller_1.BanqueController, position_controller_1.PositionController, etat_civil_controller_1.EtatCivilController, type_conge_controller_1.TypeCongeController, statistic_controller_1.StatisticController],
-        providers: [app_service_1.AppService, prisma_service_1.PrismaService, user_service_1.UserService, post_service_1.PostService, departement_service_1.DepartementService, banque_service_1.BanqueService, position_service_1.PositionService, etat_civil_service_1.EtatCivilService, type_conge_service_1.TypeCongeService, employee_service_1.EmployeeService, statistic_service_1.StatisticService],
+        controllers: [app_controller_1.AppController, employee_controller_1.EmployeeController, departement_controller_1.DepartementController, banque_controller_1.BanqueController, position_controller_1.PositionController, etat_civil_controller_1.EtatCivilController, type_conge_controller_1.TypeCongeController, statistic_controller_1.StatisticController, badges_controller_1.BadgesController],
+        providers: [app_service_1.AppService, prisma_service_1.PrismaService, user_service_1.UserService, post_service_1.PostService, departement_service_1.DepartementService, banque_service_1.BanqueService, position_service_1.PositionService, etat_civil_service_1.EtatCivilService, type_conge_service_1.TypeCongeService, employee_service_1.EmployeeService, statistic_service_1.StatisticService, badges_service_1.BadgesService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
