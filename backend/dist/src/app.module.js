@@ -40,8 +40,12 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             config_1.ConfigModule.forRoot(),
             serve_static_1.ServeStaticModule.forRoot({
+                rootPath: (0, path_1.join)(process.cwd(), 'output'),
+                serveRoot: '/files/output',
+            }),
+            serve_static_1.ServeStaticModule.forRoot({
                 rootPath: (0, path_1.join)(process.cwd(), 'client'),
-            })
+            }),
         ],
         controllers: [app_controller_1.AppController, employee_controller_1.EmployeeController, departement_controller_1.DepartementController, banque_controller_1.BanqueController, position_controller_1.PositionController, etat_civil_controller_1.EtatCivilController, type_conge_controller_1.TypeCongeController, statistic_controller_1.StatisticController, badges_controller_1.BadgesController],
         providers: [app_service_1.AppService, prisma_service_1.PrismaService, user_service_1.UserService, post_service_1.PostService, departement_service_1.DepartementService, banque_service_1.BanqueService, position_service_1.PositionService, etat_civil_service_1.EtatCivilService, type_conge_service_1.TypeCongeService, employee_service_1.EmployeeService, statistic_service_1.StatisticService, badges_service_1.BadgesService],

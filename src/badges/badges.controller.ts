@@ -2,7 +2,7 @@ import { Body, Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/c
 import { FileInterceptor, MulterModule } from '@nestjs/platform-express';
 import { BadgesService } from './badges.service';
 
-@Controller('badges')
+@Controller('/api/badges')
 export class BadgesController {
 
     constructor(private badgesService:BadgesService){}

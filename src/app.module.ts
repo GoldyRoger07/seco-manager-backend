@@ -28,9 +28,14 @@ import { BadgesService } from './badges/badges.service';
   imports: [
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({
+      rootPath: join(process.cwd(), 'output'),
+      serveRoot: '/files/output',
+    }),
+    ServeStaticModule.forRoot({
       rootPath: join(process.cwd(), 'client'),
       
-    })
+    }),
+    
   ],
   controllers: [AppController, EmployeeController, DepartementController, BanqueController, PositionController, EtatCivilController, TypeCongeController, StatisticController, BadgesController],
   providers: [AppService, PrismaService, UserService, PostService, DepartementService, BanqueService, PositionService, EtatCivilService, TypeCongeService, EmployeeService, StatisticService, BadgesService],

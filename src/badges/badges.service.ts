@@ -17,28 +17,32 @@ export class BadgesService {
 
         const canvas = createCanvas(1011, 638); // format carte
         const ctx = canvas.getContext('2d');
-
+        ctx.textBaseline = "top"
         ctx.drawImage(template, 0, 0);
 
         // Texte
-        ctx.font = '30px Arial';
-        ctx.fillText(data.nom, 52.14, 242.88);
-        ctx.font = '25px Arial';
-        ctx.fillText(data.nif, 345.96, 348.88);
-        ctx.fillText(data.groupeSanguin, 345.96, 398.88);
-        ctx.font = '50.38px Arial';
-        ctx.fillText(data.id, 675.12, 527.33);
+        ctx.font = 'bold 30px Arial';
+        ctx.fillText(data.nom, 54, 239);
+        ctx.font = 'bold 25px Arial';
+        ctx.fillText(data.nif, 346, 354);
+        ctx.fillText(data.groupeSanguin, 346, 404);
+        ctx.font = 'bold 50.38px Arial';
+        ctx.fillStyle = "#FFFFFF"; 
+        ctx.fillText(data.id, 671, 530);
 
         // Photo
-        const photo = await loadImage(file.path);
+        console.log(file)
+        const photo = await loadImage(file.buffer);
         console.log(photo)
-        ctx.drawImage(photo, 689.14, 198.09, 276, 276);
+        ctx.drawImage(photo, 668, 186, 300, 300);
 
         
-        const outputPath =path.join(process.cwd(), 'output', `${data.id}.png`);
+        const outputPath = path.join(process.cwd(), 'output', `${data.id}.png`);
         fs.writeFileSync(outputPath, canvas.toBuffer('image/png'));
-        console.log(outputPath)
-        return { file: outputPath };
+        const relativeOutputPath = `/files/output/${data.id}.png`
+        console.log(relativeOutputPath)
+        // return { file: relativeOutputPath };
+        return canvas.toBuffer('image/png');
     }
 
 }
